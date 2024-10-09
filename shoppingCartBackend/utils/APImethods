@@ -1,0 +1,57 @@
+module.exports = class APImethods {
+  constructor(query, queryString) {
+    this.query = query;
+    this.queryString = queryString;
+  }
+  filter() {
+    const queryObj = { ...this.queryString };
+    const Forbiddenfields = [
+      'sort',
+      'page',
+      'limit',
+      'fields',
+    ];
+    Forbiddenfields.forEach(
+      (field) => delete queryObj[field]
+    );
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(
+      /\b(gt|gte|lt|lte|eq)\b/g,
+      (match) => `$${match}`
+    );
+    this.query = this.query.find(JSON.parse(queryStr));
+    return this;
+  }
+  sort() {
+    if (this.queryString.sort) {
+      const sortBy = this.queryString.sort
+        .split(',')
+        .join(' ');
+      this.query = this.query.sort(sortBy);
+    } else {
+      this.query = this.query.sort('price');
+    }
+    return this;
+  }
+  selectFields() {
+    if (this.queryString.fields) {
+      const fields = this.queryString.fields
+        .split(',')
+        .join(' ');
+      this.query = this.query.select(fields);
+    } else {
+      this.query = this.query.select('-__v');
+    }
+    return this;
+  }
+  makePagination() {
+    const page = this.queryString.page || 1;
+    const perPage = this.queryString.limit || 5;
+    const skipResults = (page - 1) * perPage;
+    // const numDocs = this.query.countDocuments();
+    this.query = this.query
+      .skip(skipResults)
+      .limit(perPage);
+    return this;
+  }
+};

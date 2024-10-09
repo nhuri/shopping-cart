@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+#root {
+  padding: 7px;
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+body {
+  margin: 0px;
+}
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.856);
+  position: fixed;
+  z-index: z;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 500ms forwards;
+}
+.feedbackOverlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.856);
+  position: fixed;
+  z-index: z;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 500ms forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  width: 45vh;
+  height: 50vh;
+  background-color: white;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px black;
+  animation: zoom-in 500ms forwards;
+  display: flex;
+  flex-direction: column;
+}
+#shopping-cart-modal {
+  justify-content: space-between;
+}
+@keyframes zoom-in {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+.modal .modal-close-btn,
+.feedbackModal-close-btn {
+  width: 20px;
+  background-color: red;
+  margin-left: 93%;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+}
+header {
+  min-height: 350px;
+  background: rgb(62, 253, 255);
+  background: linear-gradient(
+    38deg,
+    rgba(62, 253, 255, 1) 0%,
+    rgba(45, 84, 253, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header div select {
+  background-color: aqua;
+}
+#iconsToBuy {
+  display: flex;
+  padding: 16px;
+  margin: 20px;
+  /* display: none; */
+}
+#iconsToBuy form {
+  padding: 16px;
+  display: flex;
+}
+#iconsToBuy input {
+  /* padding: 16px; */
+  width: 200px;
+  font-size: 1.5rem;
+}
+#iconsToBuy button {
+  /* padding: 16px; */
+  width: 140px;
+  margin-right: 80px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  background-color: rgb(68, 0, 255);
+  display: flex;
+}
+#iconsToBuy button img {
+  width: 30px;
+  margin: 10px;
+}
+#iconsToBuy button:hover {
+  cursor: pointer;
+}
+
+header h3 {
+  font-family: "Monoton", sans-serif;
+  color: orange;
+  font-size: 5rem;
+  letter-spacing: 13px;
+  font-weight: 200;
+  font-style: normal;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.cardAcount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  width: 32%;
+  margin: 2px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 13px;
+}
+.card .btn {
+  width: 50%;
+  margin: 3px;
+  padding: 7px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+.btn {
+  display: flex;
+}
+.editButton {
+  background-color: yellow;
+  border-radius: 50%;
+  display: flex;
+  justify-self: end;
+}
+.point {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  top: 50vh;
+  left: 50vh;
+  border-radius: 50%;
+}
+
+#add-product-form,
+#add-user-form,
+#edit-user-form {
+  margin: 0 auto;
+  width: 75vw;
+  padding: 12px;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+#edit-product-form select option,
+#edit-product-form input,
+#edit-product-form select #add-product-form select option,
+#add-product-form input,
+#add-product-form select {
+  width: 100%;
+  padding: 1rem;
+  margin: 2px;
+  border-radius: 5px;
+}
+#add-product-form select option,
+#edit-product-form select option {
+  border-top: 1px solid black;
+}
+#openLoginModal,
+#openLogoutModal {
+  width: 70px;
+  margin-left: 50px;
+}
+#userLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.edit-btn {
+  background-color: rgb(255, 213, 0);
+  border-radius: 50%;
+  float: right;
+  padding: 7px;
+  display: flex;
+}
+[id*="edit_form "] {
+  display: flex;
+}
+.formEditProduct {
+  display: none;
+}
+.feedbackForm {
+  display: none;
+}
+#feedbacksModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}

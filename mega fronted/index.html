@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shopping</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js" type="module" defer></script>
+    <script src="login.js" type="module" defer></script>
+    <script src="adminFuncs.js" type="module" defer></script>
+    <script src="modal.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="modal" id="shopping-cart-modal">
+        <button class="modal-close-btn">x</button>
+        <div id="cartCardsModal"></div>
+        <div id="footer">
+          <button class="continue-btn">continue</button>
+          <div id="totalPrice"></div>
+          <button class="goToCheckout-btn">goToCheckOut</button>
+        </div>
+      </div>
+    </div>
+    <div class="feedbackOverlay">
+      <div class="modal" id="shopping-cart-modal">
+        <button class="feedbackModal-close-btn">x</button>
+        <div id="feedbacksModal"></div>
+      </div>
+    </div>
+    <div class="overlay" id="loginOverlay">
+      <div class="modal" id="login-modal">
+        <button class="modal-close-btn" id="closeLogin">x</button>
+        <div id="userLogin">
+          <input type="text" id="usernameLogin" placeholder="enter your mail" />
+          <input
+            type="text"
+            id="passwordLogin"
+            placeholder="enter your password"
+          />
+          <button id="login-btn">login</button>
+          <button id="register-btn">register</button>
+          <button id="forgot-password-btn">forgot password</button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="registerOverlay">
+      <div class="modal" id="register-modal">
+        <button class="modal-close-btn" id="closeRegister">x</button>
+        <div id="userRegister">
+          <input type="text" id="nameRegister" placeholder="enter your name" />
+          <select>
+            <option>select your role</option>
+            <option value="free">free</option>
+            <option value="premium">premium</option>
+            <option value="admin">admin</option>
+          </select>
+          <input type="text" id="mailRegister" placeholder="enter your mail" />
+          <input
+            type="text"
+            id="passwordRegister"
+            placeholder="enter your password"
+          />
+          <input
+            type="text"
+            id="confirmPasswordRegister"
+            placeholder="enter your confirmPassword"
+          />
+          <button id="submit-btn">submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="forgotPasswordOverlay">
+      <div class="modal" id="changePassword-modal">
+        <button class="modal-close-btn" id="closeChangePassword">x</button>
+        <div id="changePassword">
+          <input type="text" id="mail" placeholder="enter your mail" />
+          <input
+            type="text"
+            id="newPassword"
+            placeholder="enter your new password"
+          />
+          <input
+            type="text"
+            id="newconfirmPassword"
+            placeholder="enter your new confirmPassword"
+          />
+          <button id="submitChangePassword-btn">submit</button>
+        </div>
+      </div>
+    </div>
+    <header>
+      <form action="" class="displayToAdmin" id="add-product-form">
+        <input type="text" placeholder="name of the product" />
+        <input type="text" placeholder="price" />
+        <select>
+          <option value="">category</option>
+          <option value="">breakfast</option>
+          <option value="">dinner</option>
+          <option value="">drink</option>
+        </select>
+        <input type="text" placeholder="link image" />
+
+        <input type="submit" value="add product" />
+      </form>
+
+      <form action="" class="displayToAdmin" id="edit-user-form">
+        <input type="text" />
+        <input type="text" />
+
+        <input type="submit" value="edit user" />
+      </form>
+
+      <form action="" class="displayToAdmin" id="add-user-form">
+        <input type="text" />
+        <input type="text" />
+        <select>
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+        </select>
+        <input type="text" />
+
+        <input type="submit" value="add user" />
+      </form>
+      <div id="title">
+        <h3>shopping center</h3>
+        <button id="openLoginModal">
+          <img src="images/login.png" alt="sc-icon" />
+        </button>
+        <button id="openLogoutModal">
+          <img src="images/logout.jpg" alt="sc-icon" />
+        </button>
+      </div>
+      <div class="displayToPremium" id="iconsToBuy">
+        <form>
+          <input type="text" id="inputSearch" placeholder="search here..." />
+          <!-- <input type="submit" /> -->
+          <button>Search🔎</button>
+        </form>
+        <button id="openModal">
+          show modal<img src="images/cart-shopping-solid.svg" alt="sc-icon" />
+        </button>
+
+        <select id="sortPrice">
+          <option>sort by price</option>
+          <option value="expToCheap">expToCheap</option>
+          <option value="cheapToExp">cheapToExp</option>
+        </select>
+      </div>
+    </header>
+
+    <section id="root"></section>
+  </body>
+</html>
